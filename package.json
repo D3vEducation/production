@@ -1,0 +1,40 @@
+{
+  "name": "production",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "NODE_ENV=production node -r babel-register node_modules/.bin/webpack --progress --display-modules --config webpack/webpack.config.js",
+    "clean": "rm -rf dist/ && rm -rf public/app",
+    "start": "npm run clean & NODE_ENV=development nodemon src/backend --watch src/backend --exec babel-node --presets @babel/preset-env",
+    "start:production": "npm run stop & npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
+    "stop": "pm2 kill"
+  },
+  "author": "Carlos Santana",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "pm2": "^3.3.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-bundle-analyzer": "^3.1.0",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-hot-server-middleware": "^0.6.0",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-notifier": "^1.7.0"
+  }
+}

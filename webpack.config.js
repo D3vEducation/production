@@ -1,5 +1,6 @@
 // Webpack Configuration
 import {
+  context,
   devtool,
   entry,
   output,
@@ -11,12 +12,13 @@ import {
 } from './webpack/configuration';
 
 export default {
+  context: context(),
   devtool,
-  entry: entry(type),
+  entry: entry(),
   mode,
-  module,
+  module: module(),
   optimization,
-  output: output(type),
-  plugins: plugins(type),
+  output,
+  plugins: plugins(),
   resolve
-});
+};
