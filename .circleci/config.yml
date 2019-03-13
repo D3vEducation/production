@@ -10,4 +10,4 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: scp -o StrictHostKeyChecking=no -r ./tmp/* $DROPLET_USER@$DROPLET_IP://production
+      - run: scp -o StrictHostKeyChecking=no -r ~/tmp/* $DROPLET_USER@$DROPLET_IP://production
