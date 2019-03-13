@@ -1,6 +1,3 @@
-// Dependencies
-import serialize from 'serialize-javascript';
-
 // Environment
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -14,8 +11,8 @@ export default function html(options) {
   let link = '';
 
   if (isProduction) {
-    path = '/app/'
-    link = `<link rel="stylesheet" href="/css/main.css" />`;
+    path = '/app/';
+    link = '<link rel="stylesheet" href="/css/main.css" />';
   }
 
   return `
