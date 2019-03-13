@@ -2,10 +2,10 @@
   "name": "production",
   "version": "1.0.0",
   "scripts": {
-    "build": "NODE_ENV=production node -r babel-register node_modules/.bin/webpack --progress --display-modules --config webpack/webpack.config.js",
+    "build": "NODE_ENV=production node -r @babel/register node_modules/.bin/webpack --progress --display-modules --config webpack.config.js",
     "clean": "rm -rf dist/ && rm -rf public/app",
     "start": "npm run clean & NODE_ENV=development nodemon src/backend --watch src/backend --exec babel-node --presets @babel/preset-env",
-    "start:production": "npm run stop & npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
+    "start:production": "npm run stop && npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
     "stop": "pm2 kill"
   },
   "author": "Carlos Santana",
@@ -16,6 +16,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^2.1.1",

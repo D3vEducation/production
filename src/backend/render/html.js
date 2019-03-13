@@ -15,7 +15,7 @@ export default function html(options) {
 
   if (isProduction) {
     path = '/app/'
-    link = `<link rel="stylesheet" href="/css/style.css" />`;
+    link = `<link rel="stylesheet" href="/css/main.css" />`;
   }
 
   return `

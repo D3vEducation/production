@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
+import styles from './Hello.scss';
 
 class Hello extends Component {
   static propTypes = {
@@ -9,7 +10,7 @@ class Hello extends Component {
   render() {
     const { name } = this.props;
 
-    return <h1>Hello {name}</h1>;
+    return <h1 className={styles.Hello}>Hello {name}</h1>;
   }
 }
 
