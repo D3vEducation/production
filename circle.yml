@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker info
+
+  override:
+    - git submodule update --init
+    - ls
+    - pwd
+    - cd ./production && npm install && docker build -t production .
+
+  cache_directories:
+    - "production/node_modules"
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - echo 'deploying'
+      - ssh -v $DROPLET_USER@$DROPLET_IP "cd ~/production; ./circle_deployer.sh"
