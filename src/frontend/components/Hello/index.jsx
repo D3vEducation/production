@@ -4,13 +4,13 @@ import styles from './Hello.scss';
 
 class Hello extends Component {
   static propTypes = {
-    name: string.isRequired
+    name: string
   };
 
   render() {
-    const { name } = this.props;
+    const { name = 'World' } = this.props;
 
-    return <h1 className={styles.Hello}>Hello {name} UPDATED</h1>;
+    return <h1 className={styles.Hello}>Hello {name}</h1>;
   }
 }
 

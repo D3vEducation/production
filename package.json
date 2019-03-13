@@ -7,7 +7,19 @@
     "start": "npm run clean & NODE_ENV=development nodemon src/backend --watch src/backend --exec babel-node --presets @babel/preset-env",
     "start:production": "npm run stop && npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
     "stop": "pm2 kill",
-    "lint": "eslint --ext .jsx,.js src"
+    "lint": "eslint --ext .jsx,.js src",
+    "test": "jest --no-cache"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/jest/setupTestFramework.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(scss)$": "identity-obj-proxy"
+    }
   },
   "author": "Carlos Santana",
   "license": "MIT",
@@ -22,12 +34,16 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16.3": "^1.6.2",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.5.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.10",
