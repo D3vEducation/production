@@ -10,4 +10,4 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: ssh $DROPLET_USER@$DROPLET_IP 'cd $GIT_PROJECT; git checkout master; git pull; npm install; npm run start:production;'
+      - run: ssh -o StrictHostKeyChecking=no $DROPLET_USER@$DROPLET_IP 'cd $GIT_PROJECT; git checkout master; git pull; npm install; npm run start:production;'
