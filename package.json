@@ -4,7 +4,7 @@
   "scripts": {
     "build": "NODE_ENV=production node -r @babel/register node_modules/.bin/webpack --progress --display-modules --config webpack.config.js",
     "clean": "rm -rf dist/ && rm -rf public/app",
-    "start": "npm run stop && npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
+    "start-production": "npm run stop && npm run build && NODE_ENV=production pm2 start --interpreter babel-node src/backend",
     "stop": "pm2 kill",
     "lint": "eslint --ext .jsx,.js src"
   },
