@@ -10,7 +10,7 @@ class Hello extends Component {
   render() {
     const { name = 'World' } = this.props;
 
-    return <h1 className={styles.Hello}>Hello {name} UPDATED FROM CIRCLECI</h1>;
+    return <h1 className={styles.Hello}>Hello {name}</h1>;
   }
 }
 
